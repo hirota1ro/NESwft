@@ -26,6 +26,6 @@ NES emulator iOS App written in Swift.
 1. Store your `*.nes` file in the app's document directory
 2. Start the app.
 
-## Licence
+## License
 
 MIT
