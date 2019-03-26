@@ -40,7 +40,7 @@ extension Cartridge.Header {
     // [byte 10] Flags 10 (unofficial)
     // [byte 11-15] Zero filled
     init(data: Data) {
-        isValid = data.subdata(in: 0..<4) == Data(bytes: [0x4E, 0x45, 0x53, 0x1A])
+        isValid = data.subdata(in: 0..<4) == Data([0x4E, 0x45, 0x53, 0x1A])
         prgROMSize = Int(data[4]) * 0x4000
         chrROMSize = Int(data[5]) * 0x2000
         flags6 = Flags6(rawValue: data[6])

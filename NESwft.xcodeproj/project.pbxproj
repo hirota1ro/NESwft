@@ -245,9 +245,11 @@
 				TargetAttributes = {
 					741AE7E3219BD8FC00116901 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					741AE7F7219BD8FD00116901 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 741AE7E3219BD8FC00116901;
 					};
 				};
@@ -500,7 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.NESwft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -517,7 +519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.NESwft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -536,7 +538,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.NESwftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NESwft.app/NESwft";
 			};
@@ -556,7 +558,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.NESwftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NESwft.app/NESwft";
 			};
