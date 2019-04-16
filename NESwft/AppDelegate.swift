@@ -31,4 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
+
+    func application(_ app: UIApplication, open srcURL: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("\(#function) no document directory")
+            return false
+        }
+        let name = srcURL.lastPathComponent
+        let dstURL = docURL.appendingPathComponent(name)
+        do {
+            try FileManager.default.moveItem(at: srcURL, to: dstURL)
+            print("\(#function) moved from=\(srcURL) to=\(dstURL)")
+        } catch let error {
+            print("\(#function) error=\(error)")
+        }
+        return true
+    }
 }
