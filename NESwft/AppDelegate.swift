@@ -45,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error {
             print("\(#function) error=\(error)")
         }
+        NotificationCenter.default.post(name: .needsReload, object: nil)
         return true
     }
+}
+
+extension Notification.Name {
+    static let needsReload = Notification.Name("needsReload")
 }

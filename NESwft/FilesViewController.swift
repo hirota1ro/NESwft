@@ -17,16 +17,21 @@ class FilesViewController: UITableViewController {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction(_:)), for: .valueChanged)
         tableView.refreshControl = refresh
+        //
+        reload()
+    }
 
+    private func reload(refresh: UIRefreshControl? = nil) {
         DispatchQueue.global(qos: .default).async {
-            self.reload()
+            self.reloadData()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                refresh?.endRefreshing()
             }
         }
     }
 
-    private func reload() {
+    private func reloadData() {
         if let resURL = Bundle.main.resourceURL {
             if let urls = try? FileManager.default.contentsOfDirectory(at: resURL, includingPropertiesForKeys: nil) {
                 self.resFiles = urls.filter { url in url.pathExtension == "nes" }
@@ -40,14 +45,8 @@ class FilesViewController: UITableViewController {
         }
     }
 
-    @objc func refreshAction(_ sender: UIRefreshControl) {
-        DispatchQueue.global(qos: .background).async {
-            self.reload()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                sender.endRefreshing()
-            }
-        }
+    @objc private func refreshAction(_ sender: UIRefreshControl) {
+        reload(refresh: sender)
     }
 
     enum Section: Int, CaseIterable {
@@ -111,5 +110,20 @@ class FilesViewController: UITableViewController {
                 vc.url = docFiles?[indexPath.row]
             }
         }
+    }
+
+    @objc private func needsReload(notification: Notification) {
+        reload()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(needsReload(notification:)),
+                                               name: .needsReload,
+                                               object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
 }
