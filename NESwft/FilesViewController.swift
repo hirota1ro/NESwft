@@ -13,21 +13,39 @@ class FilesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DispatchQueue.global(qos: .default).async {
-            if let resURL = Bundle.main.resourceURL {
-                if let urls = try? FileManager.default.contentsOfDirectory(at: resURL, includingPropertiesForKeys: nil) {
-                    self.resFiles = urls.filter { url in url.pathExtension == "nes" }
-                }
-            }
+        // Pull down and reload
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction(_:)), for: .valueChanged)
+        tableView.refreshControl = refresh
 
-            if let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                print("\(docURL)")
-                if let urls = try? FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: nil) {
-                    self.docFiles = urls.filter { url in url.pathExtension == "nes" }
-                }
-            }
+        DispatchQueue.global(qos: .default).async {
+            self.reload()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+            }
+        }
+    }
+
+    private func reload() {
+        if let resURL = Bundle.main.resourceURL {
+            if let urls = try? FileManager.default.contentsOfDirectory(at: resURL, includingPropertiesForKeys: nil) {
+                self.resFiles = urls.filter { url in url.pathExtension == "nes" }
+            }
+        }
+        if let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            print("\(docURL)")
+            if let urls = try? FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: nil) {
+                self.docFiles = urls.filter { url in url.pathExtension == "nes" }
+            }
+        }
+    }
+
+    @objc func refreshAction(_ sender: UIRefreshControl) {
+        DispatchQueue.global(qos: .background).async {
+            self.reload()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                sender.endRefreshing()
             }
         }
     }
