@@ -50,6 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: UISceneSession Lifecycle
+
+@available(iOS 13.0, *)
+extension AppDelegate {
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    }
+}
+
 extension Notification.Name {
     static let needsReload = Notification.Name("needsReload")
 }

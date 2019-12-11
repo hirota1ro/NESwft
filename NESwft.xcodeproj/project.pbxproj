@@ -46,6 +46,7 @@
 		741AE84E219BDA6E00116901 /* PadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741AE83F219BDA6E00116901 /* PadTests.swift */; };
 		741AE84F219BDA6E00116901 /* FdnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741AE840219BDA6E00116901 /* FdnTests.swift */; };
 		7436553A219BE18A009D2B25 /* NESwftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74365539219BE18A009D2B25 /* NESwftTests.swift */; };
+		74DB687B23A07491006C8F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB687A23A07491006C8F8B /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		741AE83F219BDA6E00116901 /* PadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadTests.swift; sourceTree = "<group>"; };
 		741AE840219BDA6E00116901 /* FdnTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FdnTests.swift; sourceTree = "<group>"; };
 		74365539219BE18A009D2B25 /* NESwftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NESwftTests.swift; sourceTree = "<group>"; };
+		74DB687A23A07491006C8F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				741AE807219BDA2000116901 /* Point.swift */,
 				741AE81A219BDA2100116901 /* PPU.swift */,
 				741AE80A219BDA2000116901 /* Register.swift */,
+				74DB687A23A07491006C8F8B /* SceneDelegate.swift */,
 				741AE81C219BDA2100116901 /* Sprite.swift */,
 				741AE816219BDA2100116901 /* VRAM.swift */,
 			);
@@ -307,6 +310,7 @@
 				741AE822219BDA2100116901 /* EmuViewController.swift in Sources */,
 				741AE823219BDA2100116901 /* Mapper.swift in Sources */,
 				741AE826219BDA2100116901 /* Pad.swift in Sources */,
+				74DB687B23A07491006C8F8B /* SceneDelegate.swift in Sources */,
 				741AE7E8219BD8FC00116901 /* AppDelegate.swift in Sources */,
 				741AE827219BDA2100116901 /* Pattern.swift in Sources */,
 				741AE829219BDA2100116901 /* Fdn.swift in Sources */,
