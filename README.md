@@ -7,9 +7,9 @@ NES emulator iOS App written in Swift.
 
 ## Confirmed
 
-* Xcode 10.2
-* Swift version 5.0
-* iOS 12.2
+* Xcode 11.3
+* Swift version 5.1.3
+* iOS 13.3
 * iPad mini (5th generation)
 
 ## Known Issues
